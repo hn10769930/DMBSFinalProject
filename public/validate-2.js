@@ -1,3 +1,13 @@
+//*************************************************************************
+//*** Full Name: Jerome Grant
+//*** Course Title: Database Management Systems
+//*** Submission Date: 4 December 2025
+//*** Assignment: Final Project – Hawk Events Application
+//*** File Name: validate-2.js
+//*** Purpose: This JavaScript file performs front-end form validations for the add.html
+//***          It prevents form submission if any input is missing or invalid and displays an error message
+//***          and clears error message once a new input is made.
+//*************************************************************************
 const title=document.getElementById('title')
 const description=document.getElementById('description')
 const loc=document.getElementById('location')
@@ -11,19 +21,19 @@ document.getElementById('add').addEventListener('submit', (e) => {
 if(title!==null){
     errors=getEventFormErrors(title.value,description.value,loc.value,datetime.value)
    }
-   else{
+   /*else{
     errors=getSearchFormError(description.value)
-   }
-   
+   }*/
 if(errors.length > 0){
    e.preventDefault()
     error_message.innerText='There are missing fields or invalid entries!'
    //error_message.innerText=errors.join("! ")
 }
 })
-//Add New Event Form errors
+//Add New Event Form validation
 function getEventFormErrors(title,description,location,datetime){
    let errors=[]
+    //Title null error
    if(title===''||title==null){
       errors.push('Please add an event title')
    }
@@ -41,7 +51,7 @@ function getEventFormErrors(title,description,location,datetime){
     }
    return errors;
    }
-   //Disallow current and previous date selection
+   //Date validation
    document.addEventListener('DOMContentLoaded',(e) =>{
       function getCurrentDateTime(){
          const now=new Date();
@@ -53,9 +63,10 @@ function getEventFormErrors(title,description,location,datetime){
    })
 
 const inputs=[title,description,loc,datetime]
-//Array for all inputs
+//***Error message clears on input
 inputs.forEach(input => {
    input.addEventListener('input',() => {
    error_message.innerText=''
    })
 })
+
