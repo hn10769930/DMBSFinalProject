@@ -15,12 +15,17 @@ const express = require('express');
 const path = require('path');
 const pool = require('./mysql.js'); // uses existing db pool
 const app = express();
+const fsp = require (fs').promises;
+
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static("public"));
+
+app.get('/', function(req,res) {
+    fsp.readFile("./public/main.html");
 
 // LOGIN
 app.post('/login', async (req, res) => {
