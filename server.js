@@ -47,18 +47,42 @@ app.post('/login', async (req, res) => {
 app.post('/signup', async (req, res) => {
     const { fname, lname, email, password, copypassword, role } = req.body;
 
+    // Server-side validation
+    if (!fname || !lname || !email || !password || !copypassword) {
+        return res.status(400).send("All fields are required.");
+    }
+
+    if (password !== copypassword) {
+        return res.status(400).send("Passwords do not match.");
+    }
+
+    // Normalize role to match ENUM
+    let safeRole = (role || 'student').toLowerCase();
+    if (!['student', 'host', 'admin'].includes(safeRole)) {
+        safeRole = 'student';
+    }
+
     try {
-        await pool.execute(
-            `INSERT INTO Users (first_name, last_name, email, password_hash, secondpassword_hash, role)
-             VALUES (?, ?, ?, ?, ?, ?)`,
-            [fname, lname, email, password, copypassword, role]
+        const [result] = await pool.execute(
+            `INSERT INTO Users (first_name, last_name, email, password_hash, role)
+             VALUES (?, ?, ?, ?, ?)`,
+            [fname, lname, email, password, safeRole]
         );
+
+        console.log("New user created with id:", result.insertId);
         res.redirect('/login.html');
+
     } catch (err) {
-        console.error(err);
-        res.status(500).send("Signup failed");
+        console.error("Signup error:", err);
+
+        if (err.code === 'ER_DUP_ENTRY') {
+            return res.status(400).send("That email is already registered. Please log in instead.");
+        }
+
+        return res.status(500).send("Signup failed: " + err.message);
     }
 });
+
 
 // ADD EVENT
 app.post('/events/add', async (req, res) => {
