@@ -1,3 +1,11 @@
+//*************************************************************************
+//*** Full Name: Jerome Grant
+//*** Course Title: Database Management Systems
+//*** Submission Date: 4 December 2025
+//*** Assignment: Final Project – Hawk Events Application
+//*** File Name: style.css
+//*** Purpose: This CSS file defines and enhances the appearance, layout and visual behavior of the website.
+//*************************************************************************/
 *{
     margin: 0px;
     padding: 0px;
@@ -129,4 +137,5 @@ color: red;
 border-color: red;
 outline-color: red;
 }
+
 
