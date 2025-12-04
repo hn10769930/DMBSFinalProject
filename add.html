@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hawk Events</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Online Registration">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script type="text/JavaScript" src="validate-2.js" defer></script>
+</head>
+<body>
+    <div id="adjust">
+        <form id="add" action="" method="">
+            <h2>Add New Event</h2>
+            <p>All fields are required:</p>
+            <div><label for="title">Title:</label><span class="asterick">*</span><br>
+            <input type="text" name="title" id="title" placeholder="Title" >
+            </div>
+            <div><label for="description">Description:</label><span class="asterick">*</span><br>
+            <input type="text" name="description" id="description" placeholder="Details">
+            </div>
+            <div><label for="location">Location:</label><span class="asterick">*</span><br>
+               <input type="text" name="location" id="location" placeholder="Building & Room Number">
+            </div>
+           <div>
+            <label for="event-time">Date & Time:</label><span class="asterick">*</span><br>
+                <input type="datetime-local" id="event-time" name="event-time">
+            </div>
+            <div>
+                <button type="submit" class="button">Add</button>
+            </div>
+            <div><p id="error-message"></p></div>
+            <div>
+            <a href="./main.html" class="return">Return Home</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
