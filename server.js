@@ -81,6 +81,10 @@ app.post('/events/add', async (req, res) => {
     }
 });
 
+app.get('/', async (req,res) => {
+    req.sendFile("./public/main.html")
+}
+
 // SEARCH EVENTS
 app.get('/events/search', async (req, res) => {
     const { search } = req.query;
