@@ -6,6 +6,7 @@ const passwd=document.getElementById('password')
 const cpasswd=document.getElementById('copypassword')
 const role=document.getElementById('role')
 const error_message=document.getElementById('error-message')
+const emailRegex= /^[a-z0-9._%=-]+@[a-z]+\.[a-z]{2,4}$/
 
 //Event listener for when the form is submitted
 document.getElementById('form').addEventListener('submit',(e) => {
@@ -25,7 +26,7 @@ else{
 //If there is any error prevent form submisstion and display errors
 if(errors.length>0){
    e.preventDefault()
-   error_message.innerText='There Are Missing Fields!'
+   error_message.innerText='There are missing fields or invalid entries!'
    //error_message.innerText=errors.join("! ")
 }
 })
@@ -48,6 +49,10 @@ function getSignupFormErrors(firstname,lastname,email,password,repeatpassword,ro
       errors.push('Email is required')
       //email.parentElement.classList.add('incorrect')
     }
+   //Email Regex validation
+   if(!emailRegex.test(email)){
+   errors.push('Email is invalid')
+   }
     //Password null error
    if(password==='' || password==null){
       errors.push('Password is required')
@@ -104,6 +109,7 @@ inputs.forEach(input => {
      error_message.innerText=''
    })
 })
+
 
 
 
