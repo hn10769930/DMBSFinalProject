@@ -15,7 +15,7 @@ const express = require('express');
 const path = require('path');
 const pool = require('./mysql.js'); // uses existing db pool
 const app = express();
-const fsp = require (fs').promises;
+const fsp = require ('fs').promises;
 
 
 // Middleware
@@ -24,8 +24,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static("public"));
 
-app.get('/', function(req,res) {
-    fsp.readFile("./public/main.html");
+app.get('/', async(req,res) => {
+    const data = await fsp.readFile("./public/main.html");
+    res.setHeader('Content-Type', 'txt/html');
+    res.end(data); 
+});
 
 // LOGIN
 app.post('/login', async (req, res) => {
@@ -111,9 +114,9 @@ app.post('/events/add', async (req, res) => {
     }
 });
 
-app.get('/', async (req,res) => {
-    req.sendFile("./public/main.html")
-})
+// app.get('/', async (req,res) => {
+//     req.sendFile("./public/main.html")
+// })
 
 // SEARCH EVENTS
 app.get('/events/search', async (req, res) => {
@@ -155,3 +158,4 @@ app.get('/events/search', async (req, res) => {
 // ------------------- START SERVER -------------------
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+
