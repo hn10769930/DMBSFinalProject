@@ -8,7 +8,7 @@ body{
     font-size: large;
     justify-content: center;
     background-size: cover;
-    background-image: url("./images/sju-back.jpg");
+    background-image: url("./sju-back.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center center;
@@ -129,3 +129,4 @@ color: red;
 border-color: red;
 outline-color: red;
 }
+
