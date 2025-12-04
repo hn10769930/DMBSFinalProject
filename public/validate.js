@@ -1,4 +1,16 @@
+//*************************************************************************
+//*** Full Name: Jerome Grant
+//*** Course Title: Database Management Systems
+//*** Submission Date: 4 December 2025
+//*** Assignment: Final Project – Hawk Events Application
+//*** File Name: validate.js
+//*** Purpose: This JavaScript file performs front-end form validations for both the login.html and signup.html.
+//***          It prevents form submission if any input is missing or invalid and displays an error message.
+//***          It also determines whether the page is the signup or login based on the input fields that exist
+//***           and clears error message once a new input is made.
+//*************************************************************************
 //For login and signup
+//*** Retrieve input fields
 const fname=document.getElementById('fname')
 const lname=document.getElementById('lname')
 const email=document.getElementById('email')
@@ -6,12 +18,12 @@ const passwd=document.getElementById('password')
 const cpasswd=document.getElementById('copypassword')
 const role=document.getElementById('role')
 const error_message=document.getElementById('error-message')
+//**Email Format 
 const emailRegex= /^[a-z0-9._%=-]+@[a-z]+\.[a-z]{2,4}$/
 
 //Event listener for when the form is submitted
 document.getElementById('form').addEventListener('submit',(e) => {
 
-//Array for error messages
 let errors=[]
 
 //If firstname input exists use signup form
@@ -31,7 +43,7 @@ if(errors.length>0){
 }
 })
 
-//Sign up form error validation
+//Sign up form validation
 function getSignupFormErrors(firstname,lastname,email,password,repeatpassword,role){
     let errors=[]
    //First Name null error
@@ -82,7 +94,7 @@ function getSignupFormErrors(firstname,lastname,email,password,repeatpassword,ro
     return errors;
 }
 
-//Login form error validation
+//Login form validation
 function getLoginFormErrors(email,password){
    let errors=[]
    if(email==='' || email==null){
@@ -99,7 +111,7 @@ function getLoginFormErrors(email,password){
 }
 //Array for all inputs
 const inputs=[fname,lname,email,passwd,cpasswd,role].filter(input => input!=null)//.filter -if input element is not present it is null and filtered out the array-useful for login page
-
+//**Error message clears on input 
 inputs.forEach(input => {
    input.addEventListener('input',() => {
      /* if(input.parentElement.classList.contains('incorrect')){
@@ -109,6 +121,7 @@ inputs.forEach(input => {
      error_message.innerText=''
    })
 })
+
 
 
 
