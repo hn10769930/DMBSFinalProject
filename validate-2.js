@@ -17,7 +17,8 @@ if(title!==null){
    
 if(errors.length > 0){
    e.preventDefault()
-   error_message.innerText=errors.join("! ")
+    error_message.innerText='There are missing fields or invalid entries!'
+   //error_message.innerText=errors.join("! ")
 }
 })
 //Add New Event Form errors
