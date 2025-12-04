@@ -2,25 +2,24 @@
 <html lang="en">
 
 <head>
-    <title>SJU Events</title>
+    <title>Hawks Signup</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Online Registration">
-    <meta name="keywords" content="SJU, Saint Joseph's University, events">
+    <meta name="keywords" content="SJU, Saint Joseph's University, hawks, events">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <script type="text/JavaScript" src="validate.js" defer></script>
-    <script src="https://kit.fontawesome.com/1f5e7afd24.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
     <div class ="form-box">
-        <form id="form">      
-        <h2>Signup</h2>
-        <div>All fields are required:</div><div id="error-message"></div>
+        <form id="form" action="/signup" method="POST">      
+            <h2>Signup</h2>
+            <div>All fields are required:</div>
+            <div id="error-message"></div>
             <div><input type="text" name="fname" id='fname'placeholder="First Name"></div>
             <div><input type ="text" name="lname" id='lname' placeholder="Last Name"></div>
             <div><input type="email" name="email" id='email' placeholder="Email eg. johndoe12@sju.edu" pattern="[a-z0-9._%=-]+@[a-z]+\.[a-z]{2,4}$"></div>
@@ -35,10 +34,7 @@
             <button type="submit" class="button">Signup</button>
             </div>
             <div class="register"><p>Already have an acount?<a href="login.html">Login</a></p></div>
-            <!--<div id="error-message"></div>-->
-        </form>
-        
+        </form>     
     </div>
-
 </body>
 </html>
