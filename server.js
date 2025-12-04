@@ -1,3 +1,16 @@
+//*************************************************************************
+//*** Full Name: Christian Urquhart
+//*** Course Title: Database Management Systems
+//*** Submission Date: 4 December 2025
+//*** Assignment: Final Project – Hawk Events Application
+//*** File Name: server.js
+//*** Purpose: This file implements the Node.js/Express backend server. 
+//***          It handles all HTTP routing logic,
+//***          connects front-end forms to the MySQL database, and processes
+//***          requests for login, signup, event creation, and event search.
+//*************************************************************************
+
+
 const express = require('express');
 const path = require('path');
 const pool = require('./mysql.js'); // uses existing db pool
