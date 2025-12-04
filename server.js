@@ -45,7 +45,7 @@ app.post('/login', async (req, res) => {
 
 // SIGNUP
 app.post('/signup', async (req, res) => {
-    const { fname, lname, email, password, role } = req.body;
+    const { fname, lname, email, password, cpassword, role } = req.body;
 
     try {
         await pool.execute(
