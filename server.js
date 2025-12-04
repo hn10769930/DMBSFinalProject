@@ -64,9 +64,10 @@ app.post('/signup', async (req, res) => {
 
     try {
         const [result] = await pool.execute(
-            `INSERT INTO Users (first_name, last_name, email, password_hash, role)
-             VALUES (?, ?, ?, ?, ?)`,
-            [fname, lname, email, password, safeRole]
+            `INSERT INTO Users (first_name, last_name, email,
+             password_hash, secondpassword_hash, role)
+             VALUES (?, ?, ?, ?, ?, ?)`,
+            [fname, lname, email, password, copypassword, safeRole]
         );
 
         console.log("New user created with id:", result.insertId);
@@ -82,7 +83,6 @@ app.post('/signup', async (req, res) => {
         return res.status(500).send("Signup failed: " + err.message);
     }
 });
-
 
 // ADD EVENT
 app.post('/events/add', async (req, res) => {
