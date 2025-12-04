@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hawk Events</title>
+    <title>Hawks Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +17,7 @@
         <form id="form" action="/login" method="POST">
             <h2>Login</h2>
             <div>All fields are required:</div>
+            <div id="error-message"></div>
             <div>
             <input type="email" name="email" id="email" placeholder="Email" pattern="[a-z0-9._%=-]+@[a-z]+\.[a-z]{2,4}$"></div>
             <div>
@@ -28,9 +29,9 @@
             <button type="submit" class="button">Login</button>
             </div>
             <div><p>Don't have an account?<a href="signup.html">Register</a></p></div>
-            <p id="error-message"></p>
         </form>
     </div>
 </body>
 
 </html>
+
