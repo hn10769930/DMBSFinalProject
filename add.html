@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hawk Events</title>
+    <title>Hawks Add</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,23 +16,23 @@
         <form id="add" action="/events/add" method="POST">
             <h2>Add New Event</h2>
             <p>All fields are required:</p>
-            <div><label for="title">Title:</label><span class="asterick">*</span><br>
-            <input type="text" name="title" id="title" placeholder="Title" >
+            <div id="error-message"></div>
+            <div><label for="title">Title:</label><br>
+            <input type="text" name="title" id="title" placeholder="Event Title" >
             </div>
-            <div><label for="description">Description:</label><span class="asterick">*</span><br>
-            <input type="text" name="description" id="description" placeholder="Details">
+            <div><label for="description">Description:</label><br>
+            <input type="text" name="description" id="description" placeholder="Event Details">
             </div>
-            <div><label for="location">Location:</label><span class="asterick">*</span><br>
+            <div><label for="location">Location:</label><br>
                <input type="text" name="location" id="location" placeholder="Building & Room Number">
             </div>
            <div>
-            <label for="event-time">Date & Time:</label><span class="asterick">*</span><br>
+            <label for="event-time">Date & Time:</label><br>
                 <input type="datetime-local" id="event-time" name="event-time">
             </div>
             <div>
                 <button type="submit" class="button">Add</button>
             </div>
-            <div><p id="error-message"></p></div>
             <div>
             <a href="./main.html" class="return">Return Home</a>
             </div>
@@ -41,3 +41,4 @@
 </body>
 
 </html>
+
