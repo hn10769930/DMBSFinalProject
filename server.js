@@ -49,9 +49,9 @@ app.post('/signup', async (req, res) => {
 
     try {
         await pool.execute(
-            `INSERT INTO Users (first_name, last_name, email, password_hash, role)
-             VALUES (?, ?, ?, ?, ?)`,
-            [fname, lname, email, password, role]
+            `INSERT INTO Users (first_name, last_name, email, password_hash, secondpassword_hash, role)
+             VALUES (?, ?, ?, ?, ?, ?)`,
+            [fname, lname, email, password, cpassword, role]
         );
         res.redirect('/login.html');
     } catch (err) {
